@@ -14,7 +14,7 @@ Mac: `bash setup-mac.sh`
 Run the following command to create the vm: `bash create-vm.sh`
 
 ### To SSH into the vm:
-`ssh -o StrictHostKeyChecking=no -i id_ed25519 relativepath@$(multipass info relativepath | grep IPv4 | awk '{print $2}')`
+`ssh -i id_ed25519 -o StrictHostKeyChecking=no relativepath@$(multipass info relativepath | grep IPv4 | awk '{print $2}')`
 
 ### Installing docker inside the VM
 Transfer the automated docker installation script from your local machine to the VM:
