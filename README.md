@@ -13,20 +13,12 @@ Mac: `bash setup-mac.sh`
 ### Starting the VM
 Run the following command to create the vm: `bash create-vm.sh`
 
+### Copy install docker script securely
+`scp -i id_ed25519 -o StrictHostKeyChecking=no installDocker.sh relativepath@$(multipass info relativepath | grep IPv4 | awk '{print $2}'):/home/relativepath/`
+
 ### To SSH into the vm:
 `ssh -o StrictHostKeyChecking=no -i id_ed25519 relativepath@$(multipass info relativepath | grep IPv4 | awk '{print $2}')`
 
-### Installing docker inside the VM
-Transfer the automated docker installation script from your local machine to the VM:
-`multipass transfer installDocker.sh relativepath:/home/relativepath/installDocker.sh`
-
-### Permissions note
- If changes in the permissions of /home/relativepath are needed to allow access for the user that is performing the transfer:
-Shell into the VM:
-`multipass shell relativepath`
-`sudo chmod 755 /home/relativepath`
-`exit`
-re-run the transfer command
 
 ## **2. Transferring the Family Tree Project to the VM**
 ### **Clone from GitHub**
